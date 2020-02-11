@@ -71,11 +71,47 @@
      * @return array sorted in ascending order
      *
      */
-    static double [] quickSort (double a[]){
-	
-		 //todo: implement the sort
+	 static double [] quickSort ( double a[])
+	 {
+		 recursiveQuick(a,0,a.length-1);
+		 return a;
+	 }
+	 public static void recursiveQuick(double a[], int low, int high)
+	 {
+		 if(high <= low)
+		 {
+			 return;
+		 }
+		 int pivotPosition = partition(a,low,high);
+		 recursiveQuick(a,low, (pivotPosition-1));
+		 recursiveQuick(a, (pivotPosition+1), high);
+	 }
+	 private static int partition(double a[], int low, int high)
+	 {
+		 int index1 = low;
+		 int index2 = high + 1;
+		 double pivotElement = a[low];
 
-    }//end quicksort
+		 while(true)
+		 {
+			 while((a[++index1] > (pivotElement)))
+			 {
+				 if(index1 == high) break;
+			 }
+			 while((pivotElement < (a[--index2])))
+			 {
+				 if(index2 == low) break;
+			 }
+			 if(index1 >= index2) break;
+
+			 double temporary = a[index1];
+			 a[index1] = a[index2];
+			 a[index2] = temporary;
+		 }
+		 a[low] = a[index2];
+		 a[index2] = pivotElement;
+		 return index2;
+	 }
 
     /**
      * Sorts an array of doubles using Merge Sort.
