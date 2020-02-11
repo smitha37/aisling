@@ -42,11 +42,27 @@
      * @return array sorted in ascending order
      *
      */
-    static double [] selectionSort (double a[]){
+	 static double [] selectionSort (double a[])
+	 {
+		 double numberOfElements = a.length;
 
-         //todo: implement the sort
+		 for(int firstElement = 0; firstElement < (numberOfElements-1); firstElement++)
+		 {
+			 int min = firstElement;
+			 for(int findMin = min + 1; findMin < numberOfElements; findMin++)
+			 {
+				 if(a[findMin] < a[min])
+				 {
+					 min = findMin;
+				 }
+			 }
+			 double temporary = a[min];
+			 a[min] = a[firstElement];
+			 a[firstElement] = temporary;
+		 }
+		 return a;
 
-    }//end selectionsort
+	 }
 
     /**
      * Sorts an array of doubles using Quick Sort.
