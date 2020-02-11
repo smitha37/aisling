@@ -17,11 +17,24 @@
      * @return array sorted in ascending order.
      *
      */
-    static double [] insertionSort (double a[]){
+	 static double [] insertionSort (double a[])
+	 {
+		 double temporaryElement = 0;
 
-        //todo: implement the sort
-    }//end insertionsort
-	
+		 for(int firstElement = 1; firstElement < a.length; firstElement++)
+		 {
+			 for(int lastElement = firstElement; lastElement > 0; lastElement--)
+			 {
+				 if(a[lastElement] < a[lastElement-1])
+				 {
+					 temporaryElement = a[lastElement];
+					 a[lastElement] = a[lastElement-1];
+					 a[lastElement-1] = temporaryElement;
+				 }
+			 }
+		 }
+		 return a;
+	 }
 	    /**
      * Sorts an array of doubles using Selection Sort.
      * This method is static, thus it can be called as SortComparison.sort(a)
