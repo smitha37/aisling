@@ -143,19 +143,52 @@
      * @param a: An unsorted array of doubles.
      * @return after the method returns, the array must be in ascending sorted order.
      */
-    static double[] mergeSortRecursive (double a[]) {
+    public static void mergeSortRecursive (double a[]) 
+    {
+    	double[] tempArray = new double[a.length];
+    	sort(a,tempArray,0,a.length-1);
+   }
+    private static void sort(double[]a,double[] tempArray ,int low, int high)
+    {
+    	if(high <= low)
+    	{
+    		return;
+    	}
+    	int middle = low + (high - low) /2;
+    	sort(a,tempArray,low,high);
+    	sort(a,tempArray,middle+1,high);
+    	merge(a,tempArray,low,middle,high);
+    }
+    private static void merge(double[]a, double[] tempArray, int low, int middle, int high)
+    {
+    	for(int i = low; i <= high; i++)
+    	{
+    		tempArray[i] = a[i];
+    	}
+    	int index = low;
+    	int index2 = middle+1;
     	
-
-    	//todo: implement the sort
-	
-   }//end mergeSortRecursive
+    	for(int i = low; i <= high; i++)
+    	{
+    		if(index > middle)
+    		{
+    			a[i]= tempArray[index2++];
+    		}
+    		else if(index2 > high)
+    		{
+    			a[i] = tempArray[index];
+    		}
+    		else if(tempArray[index2] < tempArray[index])
+    		{
+    			a[i] = tempArray[index2++];
+    		}
+    		else
+    		{
+    			a[i] = tempArray[index++];
+    		}
+    	}
+    }
     	
-    
-
-
-   
-
-
     public static void main(String[] args) {
 
         //todo: do experiments as per assignment instructions
