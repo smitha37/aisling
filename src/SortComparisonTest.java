@@ -1,6 +1,7 @@
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -100,6 +101,50 @@ public class SortComparisonTest
     	double b[] = SortComparison.quickSort(a);
     	double bNegative[] = SortComparison.quickSort(aNegative);
     	double bSingle[] = SortComparison.quickSort(aSingle);
+    	assertArrayEquals(b,aSorted, DELTA);
+    	assertArrayEquals(bNegative,aNegativeSorted,DELTA);
+    	assertArrayEquals(bSingle,aSingleSorted,DELTA);
+    }
+    @Test
+    public void testMergeSortIterativeisEmpty()
+    {
+    	double[] a = null;
+    	assertNull(SortComparison.mergeSortIterative(a));	
+    }
+    @Test
+    public void testMergeIterativeSort()
+    {
+    	double a[] = {0.3 , 1.0 , 0.1 , 4.0 , 2.0};
+    	double aSorted[] = {0.1,0.3,1.0,2.0,4.0};
+    	double aNegative[] = {-0.6, -0.2, -2.0, -1.5, -3.0, 1.4};
+    	double aNegativeSorted[] = {-3.0, -2.0, -1.5, -0.6, -0.2, 1.4};
+    	double aSingle[] = {0.23};
+    	double aSingleSorted[] = {0.23};
+    	double b[] = SortComparison.mergeSortIterative(a);
+    	double bNegative[] = SortComparison.mergeSortIterative(aNegative);
+    	double bSingle[] = SortComparison.mergeSortIterative(aSingle);
+    	assertArrayEquals(b,aSorted, DELTA);
+    	assertArrayEquals(bNegative,aNegativeSorted,DELTA);
+    	assertArrayEquals(bSingle,aSingleSorted,DELTA);
+    }
+    @Test
+    public void testMergeSortRecursiveisEmpty()
+    {
+    	double[] a = null;
+    	assertNull(SortComparison.mergeSortRecursive(a));	
+    }
+    @Test
+    public void testMergeSortRecursive()
+    {
+    	double a[] = {0.3 , 1.0 , 0.1 , 4.0 , 2.0};
+    	double aSorted[] = {0.1,0.3,1.0,2.0,4.0};
+    	double aNegative[] = {-0.6, -0.2, -2.0, -1.5, -3.0, 1.4};
+    	double aNegativeSorted[] = {-3.0, -2.0, -1.5, -0.6, -0.2, 1.4};
+    	double aSingle[] = {0.23};
+    	double aSingleSorted[] = {0.23};
+    	double b[] = SortComparison.mergeSortRecursive(a);
+    	double bNegative[] = SortComparison.mergeSortRecursive(aNegative);
+    	double bSingle[] = SortComparison.mergeSortRecursive(aSingle);
     	assertArrayEquals(b,aSorted, DELTA);
     	assertArrayEquals(bNegative,aNegativeSorted,DELTA);
     	assertArrayEquals(bSingle,aSingleSorted,DELTA);

@@ -148,13 +148,21 @@
      * @return after the method returns, the array must be in ascending sorted order.
      */
 
-    public static void mergeSortIterative (double a[]) 
+    static double[] mergeSortIterative (double a[]) 
     {
+    	if(a == null)
+    	{
+    		return null;
+    	}
+    	else
+    	{
     	int length = a.length;
     	double[] tempArray = new double[length];
     	for(int size = 1; size < length; size = size+size)
     		for(int low = 0; low < length-size; low += size+size)
     			merge(a,tempArray,low,low+size-1,Math.min(low+size+size-1,length-1));
+    	return a;
+    	}
     }
     
     /**
@@ -164,10 +172,18 @@
      * @param a: An unsorted array of doubles.
      * @return after the method returns, the array must be in ascending sorted order.
      */
-    public static void mergeSortRecursive (double a[]) 
+    static double[] mergeSortRecursive (double a[]) 
     {
+    	if(a == null)
+    	{
+    		return null;
+    	}
+    	else
+    	{
     	double[] tempArray = new double[a.length];
     	sort(a,tempArray,0,a.length-1);
+    	return a;
+    	}
    }
     private static void sort(double[]a,double[] tempArray ,int low, int high)
     {
