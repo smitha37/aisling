@@ -128,13 +128,14 @@
      * @return after the method returns, the array must be in ascending sorted order.
      */
 
-    static double[] mergeSortIterative (double a[]) {
-
-		 //todo: implement the sort
-	
-    }//end mergesortIterative
-    
-    
+    public static void mergeSortIterative (double a[]) 
+    {
+    	int length = a.length;
+    	double[] tempArray = new double[length];
+    	for(int size = 1; size < length; size = size+size)
+    		for(int low = 0; low < length-size; low += size+size)
+    			merge(a,tempArray,low,low+size-1,Math.min(low+size+size-1,length-1));
+    }
     
     /**
      * Sorts an array of doubles using recursive implementation of Merge Sort.
