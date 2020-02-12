@@ -82,6 +82,28 @@ public class SortComparisonTest
     	assertArrayEquals(bNegative,aNegativeSorted,DELTA);
     	assertArrayEquals(bSingle,aSingleSorted,DELTA);
     }
+    @Test
+    public void testQuickSortisEmpty()
+    {
+    	double[] a = null;
+    	assertNull(SortComparison.quickSort(a));	
+    }
+    @Test
+    public void testQuickSort()
+    {
+    	double a[] = {0.3 , 1.0 , 0.1 , 4.0 , 2.0};
+    	double aSorted[] = {0.1,0.3,1.0,2.0,4.0};
+    	double aNegative[] = {-0.6, -0.2, -2.0, -1.5, -3.0, 1.4};
+    	double aNegativeSorted[] = {-3.0, -2.0, -1.5, -0.6, -0.2, 1.4};
+    	double aSingle[] = {0.23};
+    	double aSingleSorted[] = {0.23};
+    	double b[] = SortComparison.quickSort(a);
+    	double bNegative[] = SortComparison.quickSort(aNegative);
+    	double bSingle[] = SortComparison.quickSort(aSingle);
+    	assertArrayEquals(b,aSorted, DELTA);
+    	assertArrayEquals(bNegative,aNegativeSorted,DELTA);
+    	assertArrayEquals(bSingle,aSingleSorted,DELTA);
+    }
     
     // ----------------------------------------------------------
     /**

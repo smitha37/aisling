@@ -19,6 +19,12 @@
      */
 	 static double [] insertionSort (double a[])
 	 {
+		 if(a == null)
+		 {
+			 return null;
+		 }
+		 else
+		 {
 		 double temporaryElement = 0;
 
 		 for(int firstElement = 1; firstElement < a.length; firstElement++)
@@ -34,6 +40,7 @@
 			 }
 		 }
 		 return a;
+		 }
 	 }
 	    /**
      * Sorts an array of doubles using Selection Sort.
@@ -44,6 +51,12 @@
      */
 	 static double [] selectionSort (double a[])
 	 {
+		 if(a == null)
+		 {
+			 return null;
+		 }
+		 else
+		 {
 		 double numberOfElements = a.length;
 
 		 for(int firstElement = 0; firstElement < (numberOfElements-1); firstElement++)
@@ -61,7 +74,7 @@
 			 a[firstElement] = temporary;
 		 }
 		 return a;
-
+		 }
 	 }
 
     /**
@@ -73,8 +86,15 @@
      */
 	 static double [] quickSort ( double a[])
 	 {
+		 if(a == null)
+		 {
+			 return null;
+		 }
+		 else
+		 {
 		 recursiveQuick(a,0,a.length-1);
 		 return a;
+		 }
 	 }
 	 public static void recursiveQuick(double a[], int low, int high)
 	 {
