@@ -92,45 +92,47 @@
 		 }
 		 else
 		 {
-		 recursiveQuick(a,0,a.length-1);
+		 recursiveQuick(a,0,(a.length-1));
 		 return a;
 		 }
 	 }
 	 public static void recursiveQuick(double a[], int low, int high)
 	 {
-		 if(high <= low)
-		 {
-			 return;
-		 }
 		 int pivotPosition = partition(a,low,high);
-		 recursiveQuick(a,low, (pivotPosition-1));
-		 recursiveQuick(a, (pivotPosition+1), high);
+		 if(low < (pivotPosition -1))
+		 {
+			recursiveQuick(a, low , (pivotPosition-1)); 
+		 }
+		 if(high > pivotPosition)
+		 {
+		 recursiveQuick(a, pivotPosition, high);
+		 }
 	 }
 	 private static int partition(double a[], int low, int high)
 	 {
-		 int index1 = low;
-		 int index2 = high + 1;
 		 double pivotElement = a[low];
 
-		 while(true)
+		 while(low <= high)
 		 {
-			 while((a[++index1] > (pivotElement)))
+			 while(a[low] < pivotElement)
 			 {
-				 if(index1 == high) break;
+				 low++;
 			 }
-			 while((pivotElement < (a[--index2])))
+			 while(a[high] > pivotElement)
 			 {
-				 if(index2 == low) break;
+				 high--;
 			 }
-			 if(index1 >= index2) break;
-
-			 double temporary = a[index1];
-			 a[index1] = a[index2];
-			 a[index2] = temporary;
+			 if(low <= high) 
+			 {
+				 double temporary = a[low];
+				 a[low] = a[high];
+				 a[high] = temporary;
+				 
+				 low++;
+				 high--;
+			 } 
 		 }
-		 a[low] = a[index2];
-		 a[index2] = pivotElement;
-		 return index2;
+		 return low;
 	 }
 
     /**
