@@ -515,6 +515,75 @@ import org.junit.rules.Stopwatch;
          difference = end - start;
          System.out.println(difference);
          
+         System.out.print("\nArray Size 1000 With Nearly Ordered Elements For Insertion Sort: ");
+         start = System.nanoTime();
+         SortComparison.insertionSort(i_1000NO);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 1000 With Nearly Ordered Elements For Selection Sort: ");
+         start = System.nanoTime();
+         SortComparison.selectionSort(s_1000NO);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 1000 With Nearly Ordered Elements For Quick Sort: ");
+         start = System.nanoTime();
+         SortComparison.quickSort(q_1000NO);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 1000 With Nearly Ordered Elements For Merge Sort Iterative: ");
+         start = System.nanoTime();
+         SortComparison.mergeSortIterative(mi_1000NO);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 1000 With Nearly Ordered Elements For Merge Sort Recursive: ");
+         start = System.nanoTime();
+         SortComparison.mergeSortRecursive(mr_1000NO);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("\nArray Size 1000 With Reverse Elements For Insertion Sort: ");
+         start = System.nanoTime();
+         SortComparison.insertionSort(i_1000R);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 1000 With Reverse Elements For Selection Sort: ");
+         start = System.nanoTime();
+         SortComparison.selectionSort(s_1000R);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 1000 With Reverse Elements For Quick Sort: ");
+         start = System.nanoTime();
+         SortComparison.quickSort(q_1000R);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 1000 With Reverse Elements For Merge Sort Iterative: ");
+         start = System.nanoTime();
+         SortComparison.mergeSortIterative(mi_1000R);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 1000 With Reverse Elements For Merge Sort Recursive: ");
+         start = System.nanoTime();
+         SortComparison.mergeSortRecursive(mr_1000R);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
          
          
     }
