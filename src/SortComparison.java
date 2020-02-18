@@ -193,37 +193,37 @@
     	{
     		return;
     	}
-    	int middle = low + (high - low) /2;
-    	sort(a,tempArray,low,high);
-    	sort(a,tempArray,middle+1,high);
+    	int middle = low + (high - low)/2;
+    	sort(a,tempArray,low,middle);
+    	sort(a,tempArray,(middle+1),high);
     	merge(a,tempArray,low,middle,high);
     }
     private static void merge(double[]a, double[] tempArray, int low, int middle, int high)
     {
-    	for(int i = low; i <= high; i++)
+    	for(int k = low; k <= high; k++)
     	{
-    		tempArray[i] = a[i];
+    		tempArray[k] = a[k];
     	}
-    	int index = low;
-    	int index2 = middle+1;
+    	int i = low;
+    	int j = middle+1;
     	
-    	for(int i = low; i <= high; i++)
+    	for(int k = low; k <= high; k++)
     	{
-    		if(index > middle)
+    		if(i > middle)
     		{
-    			a[i]= tempArray[index2++];
+    			a[k]= tempArray[j++];
     		}
-    		else if(index2 > high)
+    		else if(j > high)
     		{
-    			a[i] = tempArray[index];
+    			a[k] = tempArray[i++];
     		}
-    		else if(tempArray[index2] < tempArray[index])
+    		else if(tempArray[j] < tempArray[i])
     		{
-    			a[i] = tempArray[index2++];
+    			a[k] = tempArray[j++];
     		}
     		else
     		{
-    			a[i] = tempArray[index++];
+    			a[k] = tempArray[i++];
     		}
     	}
     }
