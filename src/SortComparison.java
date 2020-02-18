@@ -585,6 +585,40 @@ import org.junit.rules.Stopwatch;
          difference = end - start;
          System.out.println(difference);
          
+         System.out.print("\nArray Size 1000 With Sorted Elements For Insertion Sort: ");
+         start = System.nanoTime();
+         SortComparison.insertionSort(i_1000S);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 1000 With Sorted Elements For Selection Sort: ");
+         start = System.nanoTime();
+         SortComparison.selectionSort(s_1000S);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 1000 With Sorted Elements For Quick Sort: ");
+         start = System.nanoTime();
+         SortComparison.quickSort(q_1000S);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 1000 With Sorted Elements For Merge Sort Iterative: ");
+         start = System.nanoTime();
+         SortComparison.mergeSortIterative(mi_1000S);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 1000 With Sorted Elements For Merge Sort Recursive: ");
+         start = System.nanoTime();
+         SortComparison.mergeSortRecursive(mr_1000S);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
          
     }
 
