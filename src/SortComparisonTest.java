@@ -156,7 +156,45 @@ public class SortComparisonTest
      */
     public static void main(String[] args)
     {
-        //TODO: implement this method
+        double[] i_10 = new double[10];
+        double[] i_100 = new double[100];
+        double[] i_1000 = new double[1000];
+        double[] i_1000D = new double[1000];
+        double[] i_1000NO = new double[1000];
+        double[] i_1000R = new double[1000];
+        double[] i_1000S = new double[1000];
+        
+        double[] s_10 = new double[10];
+        double[] s_100 = new double[100];
+        double[] s_1000 = new double[1000];
+        double[] s_1000D = new double[1000];
+        double[] s_1000NO = new double[1000];
+        double[] s_1000R = new double[1000];
+        double[] s_1000S = new double[1000];
+        
+        double[] q_10 = new double[10];
+        double[] q_100 = new double[100];
+        double[] q_1000 = new double[1000];
+        double[] q_1000D = new double[1000];
+        double[] q_1000NO = new double[1000];
+        double[] q_1000R = new double[1000];
+        double[] q_1000S = new double[1000];
+        
+        double[] mi_10 = new double[10];
+        double[] mi_100 = new double[100];
+        double[] mi_1000 = new double[1000];
+        double[] mi_1000D = new double[1000];
+        double[] mi_1000NO = new double[1000];
+        double[] mi_1000R = new double[1000];
+        double[] mi_1000S = new double[1000];
+        
+        double[] mr_10 = new double[10];
+        double[] mr_100 = new double[100];
+        double[] mr_1000 = new double[1000];
+        double[] mr_1000D = new double[1000];
+        double[] mr_1000NO = new double[1000];
+        double[] mr_1000R = new double[1000];
+        double[] mr_1000S = new double[1000];
     }
 
 }
