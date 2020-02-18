@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import org.junit.rules.Stopwatch;
+
 // -------------------------------------------------------------------------
 
 /**
@@ -372,6 +374,84 @@ import java.util.Scanner;
          	d++;
          }
          fileReader.close();
+         
+         System.out.print("Array Size 10 For Insertion Sort: ");
+         double start = System.nanoTime();
+         SortComparison.insertionSort(i_10);
+         double end = System.nanoTime();
+         double difference = end - start;
+         System.out.print(difference);
+         
+         System.out.print("\nArray Size 10 For Selection Sort: ");
+         start = System.nanoTime();
+         SortComparison.selectionSort(s_10);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 10 For Quick Sort: ");
+         start = System.nanoTime();
+         SortComparison.quickSort(q_10);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 10 For Merge Sort Iterative: ");
+         start = System.nanoTime();
+         SortComparison.mergeSortIterative(mi_10);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 10 For Merge Sort Recursive: ");
+         start = System.nanoTime();
+         SortComparison.mergeSortRecursive(mr_10);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("\nArray Size 100 For Insertion Sort: ");
+         start = System.nanoTime();
+         SortComparison.insertionSort(i_100);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 100 For Selection Sort: ");
+         start = System.nanoTime();
+         SortComparison.selectionSort(s_100);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 100 For Quick Sort: ");
+         start = System.nanoTime();
+         SortComparison.quickSort(q_100);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 100 For Merge Sort Iterative: ");
+         start = System.nanoTime();
+         SortComparison.mergeSortIterative(mi_100);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         System.out.print("Array Size 100 For Merge Sort Recursive: ");
+         start = System.nanoTime();
+         SortComparison.mergeSortRecursive(mr_100);
+         end = System.nanoTime();
+         difference = end - start;
+         System.out.println(difference);
+         
+         
+         
+         
+         
+         
+         
+         
          
     }
 
