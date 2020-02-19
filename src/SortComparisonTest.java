@@ -15,7 +15,43 @@ import org.junit.runners.JUnit4;
  *
  *  @author
  *  @version HT 2020
- */
+ *  
+ *  Average Running Time in Nanoseconds
+ *  								Insertion		Selection		Quick		Merge Iterative		Merge Recursive
+ *  						
+ *  10 numbers						8,066			10,033			18,466			105,500				16,200	
+ *  100 numbers						240,666			145,233			39,100			89,066				68,066
+ *  1000 numbers					4,844,200		4,855,566		364,833			246,666				332,466
+ *  1000 number duplicate			1,768,233		3,812,400		134,766			234,066				137,133
+ *  1000 numbers nearly ordered		2,374,566		2,495,866		94,766			198,133				74,166
+ *  1000 numbers reversed			1,340,100		2,752,300		228,866			117,900				63,633
+ *  1000 numbers sorted				864,566			2,361,666		56,100			110,033				95,400
+ *  
+ *  a. Which of the sorting algorithms does the order of input have an impact on? Why?
+		Insertion sort is impacted by the order of input. Insertion sorts worst case is when the elements in the array are
+		sorted in reverse order. Although this change is only slightly seen in our test, it is clear that the order of
+		input has an effect on insertion sort.
+		
+	b. Which algorithm has the biggest difference between the best and worst performance, based
+	on the type of input, for the input of size 1000? Why?
+		Insertion sort has the biggest difference between best and worst case performance when analysing the input
+		size of 1000, with a difference of 475,534 nanoseconds. The best case for insertion sort is an already sorted array whereas worst case is when elements
+		in the array are in reversed order. 
+	
+	c. Which algorithm has the best/worst scalability, i.e., the difference in performance time
+	based on the input size? Please consider only input files with random order for this answer.
+		Mergesort Recursive has the best scalability due to the fact that when input size increases there isnt a massive
+		increase in performance time. However, compared to selection sort where when input size increases there is an
+		extremely large increase in performance time. Therefore, selection sort seems to have the worst scalability.
+	
+	d. Did you observe any difference between iterative and recursive implementations of merge
+	sort?
+		Mergesort Recursive was much quicker than mergesort iterative in most cases as it uses recursive methods rather
+		than iterating through arrays.
+	
+	e. Which algorithm is the fastest for each of the 7 input files?
+		Mergesort Recursive was the algorithm which was the fastest for all 7 input files when considered together. 
+		 */
 @RunWith(JUnit4.class)
 public class SortComparisonTest
 {

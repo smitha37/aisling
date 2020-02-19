@@ -375,11 +375,15 @@ import org.junit.rules.Stopwatch;
          }
          fileReader.close();
          
+         double start = 0;
+         double end = 0;
+         double difference = 0;
+         
          System.out.print("Array Size 10 For Insertion Sort: ");
-         double start = System.nanoTime();
+         start = System.nanoTime();
          SortComparison.insertionSort(i_10);
-         double end = System.nanoTime();
-         double difference = end - start;
+         end = System.nanoTime();
+         difference = end - start;
          System.out.print(difference);
          
          System.out.print("\nArray Size 10 For Selection Sort: ");
@@ -619,7 +623,7 @@ import org.junit.rules.Stopwatch;
          end = System.nanoTime();
          difference = end - start;
          System.out.println(difference);
-         
+         }     
     }
 
- }//end class
+ //end class
