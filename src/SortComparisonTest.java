@@ -1,7 +1,7 @@
 import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.io.File;
+//import static org.junit.jupiter.api.Assertions.assertNull;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -34,13 +34,13 @@ import org.junit.runners.JUnit4;
 		
 	b. Which algorithm has the biggest difference between the best and worst performance, based
 	on the type of input, for the input of size 1000? Why?
-		Insertion sort has the biggest difference between best and worst case performance when analysing the input
-		size of 1000, with a difference of 475,534 nanoseconds. The best case for insertion sort is an already sorted array whereas worst case is when elements
-		in the array are in reversed order. 
+		Insertion sort has the biggest difference between best and worst case performance when analysing the input size of 1000, 
+		with a difference of 475,534 nanoseconds. The best case for insertion sort is an already sorted array whereas worst case 
+		is when elements in the array are in reversed order. 
 	
 	c. Which algorithm has the best/worst scalability, i.e., the difference in performance time
 	based on the input size? Please consider only input files with random order for this answer.
-		Mergesort Recursive has the best scalability due to the fact that when input size increases there isnt a massive
+		Mergesort Recursive has the best scalability due to the fact that when input size increases there isn't a massive
 		increase in performance time. However, compared to selection sort where when input size increases there is an
 		extremely large increase in performance time. Therefore, selection sort seems to have the worst scalability.
 	
@@ -194,8 +194,395 @@ public class SortComparisonTest
      * @throws FileNotFoundException 
      *
      */
-    public static void main(String[] args)
+    public static void main(String[] args) throws FileNotFoundException
     {
+    	 double[] i_10 = new double[10];
+         double[] i_100 = new double[100];
+         double[] i_1000 = new double[1000];
+         double[] i_1000D = new double[1000];
+         double[] i_1000NO = new double[1000];
+         double[] i_1000R = new double[1000];
+         double[] i_1000S = new double[1000];
+         
+         double[] s_10 = new double[10];
+         double[] s_100 = new double[100];
+         double[] s_1000 = new double[1000];
+         double[] s_1000D = new double[1000];
+         double[] s_1000NO = new double[1000];
+         double[] s_1000R = new double[1000];
+         double[] s_1000S = new double[1000];
+         
+         double[] q_10 = new double[10];
+         double[] q_100 = new double[100];
+         double[] q_1000 = new double[1000];
+         double[] q_1000D = new double[1000];
+         double[] q_1000NO = new double[1000];
+         double[] q_1000R = new double[1000];
+         double[] q_1000S = new double[1000];
+         
+         double[] mi_10 = new double[10];
+         double[] mi_100 = new double[100];
+         double[] mi_1000 = new double[1000];
+         double[] mi_1000D = new double[1000];
+         double[] mi_1000NO = new double[1000];
+         double[] mi_1000R = new double[1000];
+         double[] mi_1000S = new double[1000];
+         
+         double[] mr_10 = new double[10];
+         double[] mr_100 = new double[100];
+         double[] mr_1000 = new double[1000];
+         double[] mr_1000D = new double[1000];
+         double[] mr_1000NO = new double[1000];
+         double[] mr_1000R = new double[1000];
+         double[] mr_1000S = new double[1000];
+         
+         
+  	 File fileNumbers10 = new File("numbers10.txt");
+       Scanner fileReader = new Scanner(fileNumbers10);
+       int i = 0;
+       while (fileReader.hasNextDouble())
+       {
+       	i_10[i] = fileReader.nextDouble();
+       	s_10[i] = fileReader.nextDouble();
+       	q_10[i] = fileReader.nextDouble();
+       	mi_10[i] = fileReader.nextDouble();
+       	mr_10[i] = fileReader.nextDouble();
+       	i++;
+       }
+       fileReader.close();
+       
+       File fileNumbers100 = new File("numbers100.txt");
+       fileReader = new Scanner(fileNumbers100);
+       int j = 0;
+       while (fileReader.hasNextDouble())
+       {
+       	i_100[j] = fileReader.nextDouble();
+       	s_100[j] = fileReader.nextDouble();
+       	q_100[j] = fileReader.nextDouble();
+       	mi_100[j] = fileReader.nextDouble();
+       	mr_100[j] = fileReader.nextDouble();
+       	j++;
+       }
+       fileReader.close();
+       
+       File fileNumbers1000 = new File("numbers1000.txt");
+       fileReader = new Scanner(fileNumbers1000);
+       int k = 0;
+       while (fileReader.hasNextDouble())
+       {
+       	i_1000[k] = fileReader.nextDouble();
+       	s_1000[k] = fileReader.nextDouble();
+       	q_1000[k] = fileReader.nextDouble();
+       	mi_1000[k] = fileReader.nextDouble();
+       	mr_1000[k] = fileReader.nextDouble();
+       	k++;
+       }
+       fileReader.close();
+       
+       File fileNumbers1000Duplicates = new File("numbers1000Duplicates.txt");
+       fileReader = new Scanner(fileNumbers1000Duplicates);
+       int a = 0;
+       while (fileReader.hasNextDouble())
+       {
+       	i_1000D[a] = fileReader.nextDouble();
+       	s_1000D[a] = fileReader.nextDouble();
+       	q_1000D[a] = fileReader.nextDouble();
+       	mi_1000D[a] = fileReader.nextDouble();
+       	mr_1000D[a] = fileReader.nextDouble();
+       	a++;
+       }
+       fileReader.close();
+       
+       File fileNumbers1000NearlyOrdered = new File("numbersNearlyOrdered1000.txt");
+       fileReader = new Scanner(fileNumbers1000NearlyOrdered);
+       int b = 0;
+       while (fileReader.hasNextDouble())
+       {
+       	i_1000NO[b] = fileReader.nextDouble();
+       	s_1000NO[b] = fileReader.nextDouble();
+       	q_1000NO[b] = fileReader.nextDouble();
+       	mi_1000NO[b] = fileReader.nextDouble();
+       	mr_1000NO[b] = fileReader.nextDouble();
+       	b++;
+       }
+       fileReader.close();
+       
+       File fileNumbers1000Reverse = new File("numbersReverse1000.txt");
+       fileReader = new Scanner(fileNumbers1000Reverse);
+       int c = 0;
+       while (fileReader.hasNextDouble())
+       {
+       	i_1000R[c] = fileReader.nextDouble();
+       	s_1000R[c] = fileReader.nextDouble();
+       	q_1000R[c] = fileReader.nextDouble();
+       	mi_1000R[c] = fileReader.nextDouble();
+       	mr_1000R[c] = fileReader.nextDouble();
+       	c++;
+       }
+       fileReader.close();
+       
+       File fileNumbers1000Sorted = new File("numbersSorted1000.txt");
+       fileReader = new Scanner(fileNumbers1000Sorted);
+       int d = 0;
+       while (fileReader.hasNextDouble())
+       {
+       	i_1000S[d] = fileReader.nextDouble();
+       	s_1000S[d] = fileReader.nextDouble();
+       	q_1000S[d] = fileReader.nextDouble();
+       	mi_1000S[d] = fileReader.nextDouble();
+       	mr_1000S[d] = fileReader.nextDouble();
+       	d++;
+       }
+       fileReader.close();
+       
+       double start = 0;
+       double end = 0;
+       double difference = 0;
+       
+       System.out.print("Array Size 10 For Insertion Sort: ");
+       start = System.nanoTime();
+       SortComparison.insertionSort(i_10);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.print(difference);
+       
+       System.out.print("\nArray Size 10 For Selection Sort: ");
+       start = System.nanoTime();
+       SortComparison.selectionSort(s_10);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 10 For Quick Sort: ");
+       start = System.nanoTime();
+       SortComparison.quickSort(q_10);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 10 For Merge Sort Iterative: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortIterative(mi_10);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 10 For Merge Sort Recursive: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortRecursive(mr_10);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("\nArray Size 100 For Insertion Sort: ");
+       start = System.nanoTime();
+       SortComparison.insertionSort(i_100);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 100 For Selection Sort: ");
+       start = System.nanoTime();
+       SortComparison.selectionSort(s_100);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 100 For Quick Sort: ");
+       start = System.nanoTime();
+       SortComparison.quickSort(q_100);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 100 For Merge Sort Iterative: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortIterative(mi_100);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 100 For Merge Sort Recursive: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortRecursive(mr_100);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("\nArray Size 1000 For Insertion Sort: ");
+       start = System.nanoTime();
+       SortComparison.insertionSort(i_1000);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 For Selection Sort: ");
+       start = System.nanoTime();
+       SortComparison.selectionSort(s_1000);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 For Quick Sort: ");
+       start = System.nanoTime();
+       SortComparison.quickSort(q_1000);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 For Merge Sort Iterative: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortIterative(mi_1000);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 For Merge Sort Recursive: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortRecursive(mr_1000);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("\nArray Size 1000 With Duplicates For Insertion Sort: ");
+       start = System.nanoTime();
+       SortComparison.insertionSort(i_1000D);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Duplicates For Selection Sort: ");
+       start = System.nanoTime();
+       SortComparison.selectionSort(s_1000D);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Duplicates For Quick Sort: ");
+       start = System.nanoTime();
+       SortComparison.quickSort(q_1000D);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Duplicates For Merge Sort Iterative: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortIterative(mi_1000D);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Duplicates For Merge Sort Recursive: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortRecursive(mr_1000D);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("\nArray Size 1000 With Nearly Ordered Elements For Insertion Sort: ");
+       start = System.nanoTime();
+       SortComparison.insertionSort(i_1000NO);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Nearly Ordered Elements For Selection Sort: ");
+       start = System.nanoTime();
+       SortComparison.selectionSort(s_1000NO);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Nearly Ordered Elements For Quick Sort: ");
+       start = System.nanoTime();
+       SortComparison.quickSort(q_1000NO);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Nearly Ordered Elements For Merge Sort Iterative: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortIterative(mi_1000NO);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Nearly Ordered Elements For Merge Sort Recursive: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortRecursive(mr_1000NO);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("\nArray Size 1000 With Reverse Elements For Insertion Sort: ");
+       start = System.nanoTime();
+       SortComparison.insertionSort(i_1000R);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Reverse Elements For Selection Sort: ");
+       start = System.nanoTime();
+       SortComparison.selectionSort(s_1000R);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Reverse Elements For Quick Sort: ");
+       start = System.nanoTime();
+       SortComparison.quickSort(q_1000R);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Reverse Elements For Merge Sort Iterative: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortIterative(mi_1000R);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Reverse Elements For Merge Sort Recursive: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortRecursive(mr_1000R);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("\nArray Size 1000 With Sorted Elements For Insertion Sort: ");
+       start = System.nanoTime();
+       SortComparison.insertionSort(i_1000S);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Sorted Elements For Selection Sort: ");
+       start = System.nanoTime();
+       SortComparison.selectionSort(s_1000S);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Sorted Elements For Quick Sort: ");
+       start = System.nanoTime();
+       SortComparison.quickSort(q_1000S);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Sorted Elements For Merge Sort Iterative: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortIterative(mi_1000S);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
+       
+       System.out.print("Array Size 1000 With Sorted Elements For Merge Sort Recursive: ");
+       start = System.nanoTime();
+       SortComparison.mergeSortRecursive(mr_1000S);
+       end = System.nanoTime();
+       difference = end - start;
+       System.out.println(difference);
     }
 }
 
