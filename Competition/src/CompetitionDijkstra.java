@@ -119,10 +119,35 @@ public class CompetitionDijkstra {
     /**
     * @return int: minimum minutes that will pass before the three contestants can meet
      */
-    public int timeRequiredforCompetition(){
-
-        //TO DO
-        return -1;
+    public int timeRequiredforCompetition()
+    {
+    	for(int j = 0; j < distanceTo.length; j++)
+    	{
+    		dijkstraShortestPath(j);
+    	}
+    	int minimumSpeed = Math.min(speedC, Math.min(speedA, speedB));
+    	double maximumDistance = 0.0;
+    	
+    	for(int i = 0; i < distanceTo.length; i++)
+    	{
+    		for(int j = 0; j < distanceTo.length; j++)
+    		{
+    			if(distanceTo[i][j] == Integer.MAX_VALUE)
+    			{
+    				return -1;
+    			}
+    			else if(distanceTo[i][j] > maximumDistance)
+    			{
+    				maximumDistance = distanceTo[i][j];
+    			}
+    		}
+    	}
+    	int maximumTime = (int)Math.ceil((maximumDistance * 1000)/minimumSpeed);
+    	System.out.println(maximumTime);
+    	if(minimumSpeed <= 0 || maximumDistance == 0)
+    	{
+    		return -1;
+    	}
+        return maximumTime;
     }
-
 }
