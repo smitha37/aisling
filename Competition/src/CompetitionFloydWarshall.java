@@ -71,7 +71,6 @@ public class CompetitionFloydWarshall {
     		{
     			distanceTo[Integer.parseInt(line[0])][Integer.parseInt(line[1])] = Double.parseDouble(line[2]);
     			edgeTo[Integer.parseInt(line[0])][Integer.parseInt(line[1])] = Integer.parseInt(line[0]);
-    			
     		}
     		i++;
     	}
@@ -84,11 +83,11 @@ public class CompetitionFloydWarshall {
     		return;
     	}
     	//Floyd Warshall Shortest Path
-    	for(int k = 1; k < distanceTo.length; k++)
+    	for(int k = 0; k < distanceTo.length; k++)
     	{
-    		for(int i = 1; i < distanceTo.length; i++ )
+    		for(int i = 0; i < distanceTo.length; i++ )
     		{
-    			for(int j = 1; j < distanceTo.length; j++)
+    			for(int j = 0; j < distanceTo.length; j++)
     			{
     				if(distanceTo[i][k] + distanceTo[k][j] < distanceTo[i][j])
     				{
@@ -111,7 +110,7 @@ public class CompetitionFloydWarshall {
     	
     	for(int i = 0; i < distanceTo.length; i++)
     	{
-    		for(int j = 0; j < distanceTo.length; j++)
+    		for(int j = 0; j < distanceTo[i].length; j++)
     		{
     			if(distanceTo[i][j] == Integer.MAX_VALUE)
     			{
@@ -124,7 +123,6 @@ public class CompetitionFloydWarshall {
     		}
     	}
     	int maximumTime = (int)Math.ceil((maximumDistance * 1000)/minimumSpeed);
-    	System.out.println(maximumTime);
     	if(minimumSpeed <= 0 || maximumDistance == 0)
     	{
     		return -1;

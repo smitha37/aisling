@@ -131,7 +131,7 @@ public class CompetitionDijkstra {
     	
     	for(int i = 0; i < distanceTo.length; i++)
     	{
-    		for(int j = 0; j < distanceTo.length; j++)
+    		for(int j = 0; j < distanceTo[i].length; j++)
     		{
     			if(distanceTo[i][j] == Integer.MAX_VALUE)
     			{
@@ -144,7 +144,6 @@ public class CompetitionDijkstra {
     		}
     	}
     	int maximumTime = (int)Math.ceil((maximumDistance * 1000)/minimumSpeed);
-    	System.out.println(maximumTime);
     	if(minimumSpeed <= 0 || maximumDistance == 0)
     	{
     		return -1;
