@@ -75,6 +75,11 @@ public class CompetitionDijkstra {
     		}
     		i++;
     	}
+    	for(int j = 0; j < distanceTo.length; j++)
+    	{
+    		dijkstraShortestPath(j);
+    	}
+    	inputScanner.close();
     	}
     	catch(Exception x)
     	{
@@ -121,10 +126,6 @@ public class CompetitionDijkstra {
      */
     public int timeRequiredforCompetition()
     {
-    	for(int j = 0; j < distanceTo.length; j++)
-    	{
-    		dijkstraShortestPath(j);
-    	}
     	int minimumSpeed = Math.min(speedC, Math.min(speedA, speedB));
     	double maximumDistance = 0.0;
     	
