@@ -1,3 +1,6 @@
+import java.io.File;
+import java.util.Scanner;
+
 /*
  * A Contest to Meet (ACM) is a reality TV contest that sets three contestants at three random
  * city intersections. In order to win, the three contestants need all to meet at any intersection
@@ -16,17 +19,87 @@
  */
 
 public class CompetitionFloydWarshall {
+	public String fileName;
+	public int speedA;
+	public int speedB;
+	public int speedC;
+	public double distanceTo[][];
+	public int edgeTo[][];
+	public int edgeCount;
 
     /**
      * @param filename: A filename containing the details of the city road network
      * @param sA, sB, sC: speeds for 3 contestants
      */
-    CompetitionFloydWarshall (String filename, int sA, int sB, int sC){
-
-        //TODO
+    CompetitionFloydWarshall (String filename, int sA, int sB, int sC)
+    {
+       	this.speedA = sA;
+    	this.speedB = sB;
+    	this.speedC = sC;
+    	
+    	try
+    	{
+    	File inputFile = new File(filename);
+    	Scanner inputScanner = new Scanner(inputFile);
+    	int i = 0;
+    	
+    	while(inputScanner.hasNextLine())
+    	{
+    		String [] line = inputScanner.nextLine().trim().split("\\s+");
+    		
+    		if(i == 0)
+    		{
+    			distanceTo = new double[Integer.parseInt(line[i])][Integer.parseInt(line[i])];
+    			edgeTo = new int[Integer.parseInt(line[i])][Integer.parseInt(line[i])];
+    			for(int a = 0; a < distanceTo.length; a++)
+    			{
+    				for(int b = 0; b < distanceTo[a].length; b++)
+    				{
+    					distanceTo[a][b] = Integer.MAX_VALUE;
+    					if(a == b)
+    					{
+    						distanceTo[a][b] = 0;
+    					}
+    				}
+    			}	
+    		}
+    		else if (i == 1)
+    		{
+    			edgeCount = Integer.parseInt(line[i - 1]);
+    		}
+    		else
+    		{
+    			distanceTo[Integer.parseInt(line[0])][Integer.parseInt(line[1])] = Double.parseDouble(line[2]);
+    			edgeTo[Integer.parseInt(line[0])][Integer.parseInt(line[1])] = Integer.parseInt(line[0]);
+    			
+    		}
+    		i++;
+    	}
+    	}
+    	catch(Exception x)
+    	{
+    		distanceTo = new double[0][0];
+    		edgeTo = new int[0][0];
+    		return;
+    	}
+    	//Floyd Warshall Shortest Path
+    	for(int k = 1; k < distanceTo.length; k++)
+    	{
+    		for(int i = 1; i < distanceTo.length; i++ )
+    		{
+    			for(int j = 1; j < distanceTo.length; j++)
+    			{
+    				if(distanceTo[i][k] + distanceTo[k][j] < distanceTo[i][j])
+    				{
+    					distanceTo[i][j] = distanceTo[i][k] + distanceTo[k][j];
+    					edgeTo[i][j] = k;
+    				}
+    			}
+    		}
+    	}
     }
 
-
+    
     /**
      * @return int: minimum minutes that will pass before the three contestants can meet
      */
