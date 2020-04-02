@@ -126,6 +126,10 @@ public class CompetitionDijkstra {
      */
     public int timeRequiredforCompetition()
     {
+    	if ((speedA > 100 || speedA < 50) || (speedB > 100 || speedB < 50) || (speedC > 100 || speedC < 50))
+    	{
+			return -1;
+    	}
     	int minimumSpeed = Math.min(speedC, Math.min(speedA, speedB));
     	double maximumDistance = 0.0;
     	
