@@ -2,7 +2,6 @@
 import java.util.ArrayList; 
 import java.util.List; 
 
-//A Binary Tree node 
 class Node { 
 	int data; 
 	Node left, right; 
@@ -19,7 +18,6 @@ public class LowestCommonAncestor {
 	private List<Integer> path1 = new ArrayList<>(); 
 	private List<Integer> path2 = new ArrayList<>(); 
 
-	// Finds the path from root node to given root of the tree. 
 	int findLowestCommonAncestor(int node1, int node2) 
 	{ 
 		path1.clear(); 
@@ -44,16 +42,12 @@ public class LowestCommonAncestor {
 		return path1.get(i-1); 
 	} 
 	
-	// Finds the path from root node to given root of the tree, Stores the 
-	// path in a vector path[], returns true if path exists otherwise false 
 	private boolean findPath(Node root, int n, List<Integer> path) 
 	{ 
 		if (root == null) 
 		{ 
 			return false; 
 		} 
-		// Store this node . The node will be removed if 
-		// not in path from root to n. 
 		path.add(root.data); 
 
 		if (root.data == n) 
@@ -71,14 +65,11 @@ public class LowestCommonAncestor {
 			return true; 
 		} 
 
-		// If not present in subtree rooted with root, remove root from 
-		// path[] and return false 
 		path.remove(path.size()-1); 
 
 		return false; 
 	} 
 
-	// Driver code 
 	public static void main(String[] args) 
 	{ 
 		LowestCommonAncestor tree = new LowestCommonAncestor(); 
@@ -90,11 +81,12 @@ public class LowestCommonAncestor {
 		tree.root.right.left = new Node(6); 
 		tree.root.right.right = new Node(7); 
 
-		System.out.println("LCA(4, 5): " + tree.findLowestCommonAncestor(4,5)); 
-		System.out.println("LCA(4, 6): " + tree.findLowestCommonAncestor(4,6)); 
-		System.out.println("LCA(3, 4): " + tree.findLowestCommonAncestor(3,4)); 
 		System.out.println("LCA(2, 4): " + tree.findLowestCommonAncestor(2,4)); 
+		System.out.println("LCA(4, 6): " + tree.findLowestCommonAncestor(4,6)); 
+		System.out.println("LCA(6, 7): " + tree.findLowestCommonAncestor(6,7)); 
+		System.out.println("LCA(4, 7): " + tree.findLowestCommonAncestor(4,7)); 
 	
 	} 
 } 
-//This code is contributed by Sreenivasulu Rayanki. 
+//This code was taken from https://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/
+//I made very minor changes to help with my understanding
